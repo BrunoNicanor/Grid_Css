@@ -1,0 +1,65 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+#grade{
+    gap: 10px;
+    display: grid; /* Ativa o Grid Layout no contêiner */
+    grid-template-columns: repeat(3,1fr); /* Cria 3 colunas de tamanhos iguais, cada uma ocupando uma fração igual (1fr) do espaço disponível */
+    grid-template-rows: 100px auto 100px; /* Define 3 linhas: 
+    - Primeira linha com altura fixa de 100px 
+    - Segunda linha com altura automática para ocupar o espaço restante
+    - Terceira linha com altura fixa de 100px */
+    
+    padding: 0.5rem 3rem;
+
+}
+
+#grade>*{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    padding: 0.1em;
+    border-radius: 10px;
+}
+
+header{
+    grid-column: 1 / -1;
+    /* O cabeçalho ocupa todas as colunas (do início até o final da grade) */
+}
+
+nav{
+    grid-row: 2 / -2;
+    /* A barra de navegação ocupa todas as linhas do meio, ignorando o cabeçalho e o rodapé */
+}
+
+section{
+    grid-column: 2 / -1;
+    /* A seção ocupa da segunda coluna até o final da grade */
+}
+
+article{
+    padding: 1em;
+    
+    border-radius: 10px;
+}
+
+footer{
+    grid-column: 1 / -1;
+}
+
+section>main{
+    display: grid;
+    grid-template-columns: auto; /* As colunas são ajustadas automaticamente com base no conteúdo */
+    grid-auto-rows: auto; /* Define que as linhas terão altura automática com base no conteúdo */
+    /*Não é possível usar números negativos como na linha 29 quando a definição auto-rows ou auto-columns está ativada.*/
+    gap: 10px;
+    padding: 1em;
+}
+
+#grade>section{
+    display: block;
+    text-align: center;
+}
